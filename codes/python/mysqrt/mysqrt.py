@@ -11,10 +11,10 @@ def sqrtNT(x,debug=False):
     from numpy import nan
     
     if x==0. :
-    	return 0.
+        return 0.
     elif x<0. :
-    	print("An error has occured since you have passed a negatice value which does not have real square root")
-    	return nan
+        print("An error has occured since you have passed a negatice value which does not have real square root")
+        return nan
     assert x>0., "Input not recignised"
     s = 1.0
     kmax = 100
@@ -30,3 +30,13 @@ def sqrtNT(x,debug=False):
     if debug:
         print("After %s number of iteration ,s = %20.15f" %(k+1,s))
     return s
+
+def test_main():
+    from numpy import sqrt
+    xvalues = [0.,2.0,100,1.e6]
+    for x in xvalues:
+        print("Testing with z=%s" %x)
+        s=sqrtNT(x)
+        s_numpy=sqrt(x)
+        print("sqrtNT s = %20.15e, numpy_s = %20.15e" %(s,s_numpy))
+        assert abs(s - s_numpy) < 1e-14, "Your sqrt does not agree with numpy sqrt"
