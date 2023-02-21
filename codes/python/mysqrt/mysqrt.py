@@ -1,7 +1,6 @@
 '''
 A python module for calculating square root using the Newton's method implemented in ME522.
 '''
-''' Added something'''
 
 
 def sqrtNT(x,debug=False):
